@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Puppy Treat Cafe &amp; Dog Park Adventure!</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-toolbar">
+      <div class="brand-title">
+        <span id="brand-paw-icon" class="paw-icon">🐶</span>
+        <h1 id="brand-heading">Puppy Treat Cafe &amp; Dog Park Adventure</h1>
+      </div>
+      <div class="toolbar-actions">
+        <button id="btn-island-map" class="ui-btn primary-btn" type="button">
+          🗺️ Island Map
+        </button>
+        <button id="btn-treat-shop" class="ui-btn shop-btn" type="button">
+          🛍️ Treat Shop &amp; Closet
+        </button>
+        <button id="btn-theme-toggle" class="ui-btn kitty-btn" type="button" title="Switch between Pup Mode (71 Dogs) and Kitty Mode (32 Cats)">
+          🐱 Kitty Mode
+        </button>
+        <button id="btn-bakery-level" class="ui-btn accent-btn" type="button" title="Toggle Multi-Digit Addition vs Subtraction with Borrowing">
+          🎂 Bakery: Add (Lvl 1)
+        </button>
+        <button id="btn-controller-style" class="ui-btn" type="button">
+          🎮 8BitDo: SNES (X/Y/B/A)
+        </button>
+        <button id="btn-mute" class="ui-btn" type="button">
+          🔊 Sound: ON
+        </button>
+      </div>
+    </header>
+
+    <main class="canvas-stage">
+      <canvas id="game-canvas" width="960" height="600"></canvas>
+    </main>
+
+    <footer class="bottom-bar">
+      <div id="gamepad-status" class="gamepad-pill">
+        🕹️ Press any button on 8BitDo Controller (or use Keyboard / Mouse)
+      </div>
+      <div class="controls-legend">
+        <span><strong>Walk:</strong> D-Pad / Left Stick / Arrows / WASD</span>
+        <span>•</span>
+        <span><strong>Answer Bowls:</strong> 8BitDo Face Buttons (X / Y / A / B) or Keys 1-4 / I-J-K-L / Click</span>
+        <span>•</span>
+        <span><strong>Island Map:</strong> Select / Backspace / Esc</span>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
