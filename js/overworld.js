@@ -47,7 +47,7 @@ export const OVERWORLD_LOCATIONS = [
     id: 'park_frisbee',
     name: 'Zoomies Frisbee Park',
     subtitle: 'Catch Frisbees: Fast Recall Streak!',
-    x: 230,
+    x: 170,
     y: 430,
     color: '#10b981',
     secondaryColor: '#d1fae5',
@@ -56,10 +56,22 @@ export const OVERWORLD_LOCATIONS = [
     trigger: { mode: 'frisbee', tier: 2, title: 'Zoomies Frisbee Park', id: 'park_frisbee', locationId: 'park_frisbee' },
   },
   {
+    id: 'park_memory',
+    name: 'Echo Bell Gazebo',
+    subtitle: 'Working Memory: Watch & Repeat Numbers!',
+    x: 375,
+    y: 450,
+    color: '#6366f1',
+    secondaryColor: '#e0e7ff',
+    roofColor: '#f59e0b',
+    type: 'memory',
+    trigger: { mode: 'memory', title: 'Echo Bell Gazebo', id: 'park_memory', locationId: 'park_memory' },
+  },
+  {
     id: 'park_munchers',
     name: 'Bone Diggers Park',
     subtitle: 'Number Munchers: Dig Matching Bones!',
-    x: 510,
+    x: 585,
     y: 450,
     color: '#d97706',
     secondaryColor: '#fef3c7',
@@ -71,8 +83,8 @@ export const OVERWORLD_LOCATIONS = [
     id: 'boutique',
     name: 'Bark & Bling Boutique',
     subtitle: 'Adopt Pups & Buy Silly Hats!',
-    x: 775,
-    y: 435,
+    x: 790,
+    y: 430,
     color: '#ec4899',
     secondaryColor: '#fce7f3',
     roofColor: '#db2777',
@@ -90,15 +102,16 @@ const TREES = [
   { x: 355, y: 300, scale: 0.85, phase: 2.8, kind: 'oak' },
   { x: 635, y: 315, scale: 0.88, phase: 0.5, kind: 'oak' },
   { x: 865, y: 335, scale: 0.96, phase: 1.1, kind: 'palm' },
-  { x: 368, y: 492, scale: 0.9, phase: 2.4, kind: 'palm' },
-  { x: 650, y: 488, scale: 0.92, phase: 1.7, kind: 'oak' },
+  { x: 274, y: 492, scale: 0.9, phase: 2.4, kind: 'palm' },
+  { x: 480, y: 495, scale: 0.88, phase: 1.3, kind: 'oak' },
+  { x: 690, y: 488, scale: 0.92, phase: 1.7, kind: 'oak' },
 ];
 
 const HYDRANTS = [
   { x: 295, y: 238 },
   { x: 675, y: 248 },
-  { x: 318, y: 448 },
-  { x: 695, y: 452 },
+  { x: 272, y: 448 },
+  { x: 692, y: 452 },
 ];
 
 const FLOWER_PATCHES = [
@@ -807,15 +820,15 @@ export class OverworldScene {
 
       // Giant golden bone sign on roof
       Sprites.drawBoneTreat(ctx, 0, -70, 0.9, 0, '#facc15');
-    } else if (loc.type === 'frisbee' || loc.type === 'munchers') {
-      // Open-air Park Pavilion with wooden posts & festive banner roof
+    } else if (loc.type === 'frisbee' || loc.type === 'munchers' || loc.type === 'memory') {
+      // Open-air Park Pavilion / Gazebo with wooden posts & festive banner roof
       ctx.fillStyle = '#fde68a';
       drawRoundedRect(ctx, -48, -6, 96, 30, 12);
       ctx.fill();
       ctx.stroke();
 
       // Wooden pillars
-      ctx.fillStyle = '#92400e';
+      ctx.fillStyle = loc.type === 'memory' ? '#fffbeb' : '#92400e';
       ctx.fillRect(-40, -38, 8, 52);
       ctx.strokeRect(-40, -38, 8, 52);
       ctx.fillRect(32, -38, 8, 52);
@@ -836,6 +849,16 @@ export class OverworldScene {
         ctx.fillStyle = '#38bdf8';
         ctx.beginPath();
         ctx.ellipse(0, -47, 18, 7, Math.sin(this.time * 3) * 0.2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+      } else if (loc.type === 'memory') {
+        // Golden Echo Bell emblem on roof
+        ctx.fillStyle = '#facc15';
+        ctx.beginPath();
+        ctx.arc(0, -49, 10, Math.PI, 0);
+        ctx.lineTo(13, -38);
+        ctx.lineTo(-13, -38);
+        ctx.closePath();
         ctx.fill();
         ctx.stroke();
       } else {
@@ -883,7 +906,7 @@ export class OverworldScene {
     }
 
     // Arched doorway & windows (for buildings)
-    if (loc.type !== 'frisbee' && loc.type !== 'munchers') {
+    if (loc.type !== 'frisbee' && loc.type !== 'munchers' && loc.type !== 'memory') {
       ctx.fillStyle = '#78350f';
       drawRoundedRect(ctx, -11, -2, 22, 26, 8);
       ctx.fill();

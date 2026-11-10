@@ -353,6 +353,28 @@ class AudioEngine {
     });
   }
 
+  chimeNote(noteIndex = 0, duration = 0.3) {
+    if (!this._ready()) return;
+    const now = this.ctx.currentTime;
+    // Bright C-major scale pitches from C5 to E6 for distinct number chimes
+    const scale = [
+      523.25, // C5
+      587.33, // D5
+      659.25, // E5
+      698.46, // F5
+      783.99, // G5
+      880.0,  // A5
+      987.77, // B5
+      1046.5, // C6
+      1174.66, // D6
+      1318.51, // E6
+    ];
+    const idx = Math.abs(Math.round(noteIndex)) % scale.length;
+    const freq = scale[idx];
+    this._playBellNote(freq, now, duration, 0.22, 'triangle');
+    this._playBellNote(freq * 0.5, now, duration * 0.8, 0.1, 'sine');
+  }
+
   oops() {
     if (!this._ready()) return;
     const ctx = this.ctx;

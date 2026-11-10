@@ -6,6 +6,7 @@ import { TreatCafeScene } from './modes/cafe.js';
 import { BoardwalkScene } from './modes/boardwalk.js';
 import { BigDogBakeryScene } from './modes/bakery.js';
 import { FrisbeeParkScene } from './modes/frisbee.js';
+import { MemoryScene } from './modes/memory.js';
 import { BoneMunchersScene } from './modes/munchers.js';
 import { BoutiqueScene } from './modes/boutique.js';
 
@@ -306,6 +307,17 @@ class PuppyTreatAdventureApp {
       const scene = new FrisbeeParkScene({
         tier: trigger.tier || 2,
         parkId: trigger.locationId || 'park_frisbee',
+        onExit: exitCallback,
+      });
+      if (typeof scene.enter === 'function') scene.enter();
+      this.currentScene = scene;
+      return;
+    }
+
+    if (mode === 'memory') {
+      InputManager.setDiamondMode(true);
+      const scene = new MemoryScene({
+        locationId: trigger.locationId || 'park_memory',
         onExit: exitCallback,
       });
       if (typeof scene.enter === 'function') scene.enter();

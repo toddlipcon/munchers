@@ -18,6 +18,7 @@ const DEFAULT_PARK_STARS = {
   cafe_beach: 0,
   cafe_bakery: 0,
   park_frisbee: 0,
+  park_memory: 0,
   park_munchers: 0,
 };
 
