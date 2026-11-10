@@ -1,0 +1,30 @@
+{
+  "name": "Puppy Treat Cafe & Dog Park Adventure",
+  "short_name": "Pup Adventure",
+  "description": "2nd-grade math & working memory island adventure with 71 dogs and 32 cats!",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#0284c7",
+  "theme_color": "#0284c7",
+  "icons": [
+    {
+      "src": "./icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

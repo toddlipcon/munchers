@@ -134,7 +134,7 @@ class InputController {
       ) {
         this.pendingClicks.add(zone.id);
         if (typeof zone.callback === 'function') {
-          zone.callback(zone.id);
+          zone.callback(zone.id, pos.x, pos.y);
         }
         break;
       }

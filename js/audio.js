@@ -11,6 +11,8 @@ class AudioEngine {
         this.init();
       };
       window.addEventListener('pointerdown', unlock, { once: true });
+      window.addEventListener('touchstart', unlock, { once: true, passive: true });
+      window.addEventListener('touchend', unlock, { once: true, passive: true });
       window.addEventListener('keydown', unlock, { once: true });
     }
   }

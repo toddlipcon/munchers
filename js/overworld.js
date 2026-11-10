@@ -202,6 +202,19 @@ export class OverworldScene {
   _registerClickZones() {
     InputManager.clearClickZones();
 
+    // Tap anywhere on the island ground to walk Peanut/Marmalade there on iPad/touch!
+    // Registered first so building & HUD zones below take priority.
+    InputManager.registerClickZone('island_walk', 60, 75, 840, 445, (_id, x, y) => {
+      if (typeof x === 'number' && typeof y === 'number') {
+        this.walkTarget = {
+          x: Math.max(115, Math.min(845, x)),
+          y: Math.max(125, Math.min(505, y)),
+        };
+        this.pendingLocationTrigger = null;
+        SoundFX.step?.();
+      }
+    });
+
     // Top HUD Controller Style toggle button
     InputManager.registerClickZone('toggle_controller', 605, 8, 342, 42, () => {
       GameState.toggleControllerStyle();

@@ -134,6 +134,8 @@ class PuppyTreatAdventureApp {
       SoundFX.init();
     };
     window.addEventListener('pointerdown', unlockAudio, { once: true });
+    window.addEventListener('touchstart', unlockAudio, { once: true, passive: true });
+    window.addEventListener('touchend', unlockAudio, { once: true, passive: true });
     window.addEventListener('keydown', unlockAudio, { once: true });
 
     const btnMap = document.getElementById('btn-island-map');
@@ -376,4 +378,7 @@ class PuppyTreatAdventureApp {
 
 window.addEventListener('DOMContentLoaded', () => {
   window.puppyApp = new PuppyTreatAdventureApp();
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  }
 });
