@@ -5,15 +5,14 @@ import { Sprites, ParticleSystem } from '../sprites.js';
 
 const DIRECTIONS = ['top', 'left', 'bottom', 'right'];
 
-// Progressive 7-round working memory curriculum (3 digits -> 7 digits)
+// Progressive 6-round working memory curriculum (3 digits -> 5 digits max)
 const MEMORY_ROUNDS = [
   { length: 3, stepDuration: 1.05, allowRepeats: false, label: '3 Digits (Warm-Up)' },
+  { length: 3, stepDuration: 0.95, allowRepeats: false, label: '3 Digits' },
   { length: 4, stepDuration: 0.98, allowRepeats: false, label: '4 Digits' },
   { length: 4, stepDuration: 0.90, allowRepeats: true,  label: '4 Digits (Mix)' },
-  { length: 5, stepDuration: 0.90, allowRepeats: true,  label: '5 Digits' },
-  { length: 5, stepDuration: 0.82, allowRepeats: true,  label: '5 Digits (Fast)' },
-  { length: 6, stepDuration: 0.84, allowRepeats: true,  label: '6 Digits (Super Span)' },
-  { length: 7, stepDuration: 0.82, allowRepeats: true,  label: '7 Digits (Grand Finale!)' },
+  { length: 5, stepDuration: 0.95, allowRepeats: true,  label: '5 Digits' },
+  { length: 5, stepDuration: 0.88, allowRepeats: true,  label: '5 Digits (Grand Finale!)' },
 ];
 
 const MAESTRO_DOGS = [
@@ -1181,7 +1180,7 @@ export class MemoryScene {
     ctx.fillStyle = '#4c1d95';
     ctx.font = '800 16px "Fredoka", "Trebuchet MS", sans-serif';
     ctx.fillText(
-      `First-Try Sequences: ${this.firstTryCount} / ${this.totalRounds} (Up to 7 Digits!)`,
+      `First-Try Sequences: ${this.firstTryCount} / ${this.totalRounds} (Up to 5 Digits!)`,
       480,
       cardY + 276
     );

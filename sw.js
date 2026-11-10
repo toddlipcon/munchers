@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pup-kitty-adventure-v2';
+const CACHE_NAME = 'pup-kitty-adventure-v3';
 
 const PRECACHE_ASSETS = [
   './',
