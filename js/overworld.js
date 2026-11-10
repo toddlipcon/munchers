@@ -21,15 +21,15 @@ export const OVERWORLD_LOCATIONS = [
   },
   {
     id: 'cafe_beach',
-    name: 'Boardwalk Barkery',
-    subtitle: 'Gelato Cones: Missing Scoop & Make 10!',
+    name: 'Boardwalk Pier Hop',
+    subtitle: 'Number Sequences: Fill the Missing Plank!',
     x: 490,
     y: 155,
     color: '#06b6d4',
     secondaryColor: '#cffafe',
     roofColor: '#f43f5e',
     type: 'beach',
-    trigger: { mode: 'boardwalk', tier: 2, title: 'Boardwalk Barkery', id: 'cafe_beach', locationId: 'cafe_beach' },
+    trigger: { mode: 'boardwalk', tier: 2, title: 'Boardwalk Pier Hop', id: 'cafe_beach', locationId: 'cafe_beach' },
   },
   {
     id: 'cafe_bakery',
